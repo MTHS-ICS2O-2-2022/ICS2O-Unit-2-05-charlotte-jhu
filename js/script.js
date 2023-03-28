@@ -12,12 +12,13 @@ function myButtonClicked() {
   // input
   const hoursWorked = parseFloat(document.getElementById("hours-worked").value)
   const hourlyWage = parseFloat(document.getElementById("hourly-wage").value)
+  const TAX_RATE = 0.18
 
   // process
-const pay = (hoursWorked * hourlyWage) * (1 - 0.18)
-const governmentPay = (hoursWorked * hourlyWage) * 0.18
+  const pay = (hoursWorked * hourlyWage) * (1 - TAX_RATE)
+  const governmentPay = (hoursWorked * hourlyWage) * TAX_RATE
 
-//output
-document.getElementById("your-pay").innerHTML = "You get $ " + pay.toFixed(2)
-document.getElementById("government-pay").innerHTML = "The government gets $" + governmentPay.toFixed(2)
+  //output
+  document.getElementById("your-pay").innerHTML = "You get $ " + pay.toFixed(2)
+  document.getElementById("government-pay").innerHTML = "The government gets $" + governmentPay.toFixed(2)
 }

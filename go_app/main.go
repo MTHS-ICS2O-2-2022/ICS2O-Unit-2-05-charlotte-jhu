@@ -5,11 +5,7 @@
 
 package main
 
-import (
-	"fmt"
-
-	"github.com/leekchan/accounting"
-)
+import "fmt"
 
 func main() {
 	// This function calculates income tax
@@ -28,12 +24,12 @@ func main() {
 	// process
 	pay := (hoursWorked * hourlyWage) * (1 - 0.18)
 	governmentPay := (hoursWorked * hourlyWage) * 0.18
-	accountingFormater := accounting.Accounting{Symbol: "$", Precision: 2}
-	fmt.Println(accountingFormater.FormatMoney(123456789.213123)) 
+	roundedPay := fmt.Sprintf("%.2f\n", pay)
+	governmentRoundedPay := fmt.Sprintf("%.2f", governmentPay)
 
 	// output
 	fmt.Println()
-	fmt.Println("Your pay after tax is: $", pay)
-	fmt.Println("The government's portion is: $", governmentPay)
+	fmt.Println("Your pay after tax is: $", roundedPay)
+	fmt.Println("The government's portion is: $", governmentRoundedPay)
 	fmt.Println("\nDone.")
 }
